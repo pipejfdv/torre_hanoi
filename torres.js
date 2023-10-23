@@ -27,6 +27,7 @@ function seleccion(event){
     if(t_Origen === null){
         if(!torre_Vacia(torre)){
             t_Origen= torre;
+            console.log("torre seleccionada");
         }
         else{
             console.log("seleccionar torre con discos");
@@ -35,6 +36,7 @@ function seleccion(event){
     else if(t_Destino===null){
         if(puedeMoverse(t_Origen, torre)){
             t_Destino=torre;
+            console.log("segunda torre seleccionada");
             moverDisco(t_Origen, t_Destino);
             t_Destino = null;
             t_Origen = null;
@@ -50,6 +52,7 @@ function puedeMoverse(t_Origen, t_Destino){
     if(t_Origen == t1){
         if(t_Destino==t1){
             alert("Es la misma torre");
+            return false;   
         }
         else if (t_Destino == t2){
             if(torre_Vacia(pila2)){
@@ -66,7 +69,7 @@ function puedeMoverse(t_Origen, t_Destino){
                 }
             }
         }
-        else{
+        else if(t_Destino == t3){
             if(torre_Vacia(pila3)){
                 return true;
             }
@@ -85,6 +88,7 @@ function puedeMoverse(t_Origen, t_Destino){
     else if (t_Origen == t2){
         if(t_Destino==t2){
             alert("Es la misma torre");
+            return false;
         }
         else if (t_Destino == t1){
             if(torre_Vacia(pila1)){
@@ -101,7 +105,7 @@ function puedeMoverse(t_Origen, t_Destino){
                 }
             }
         }
-        else{
+        else if (t_Destino == t3){
             if(torre_Vacia(pila3)){
                 return true;
             }
@@ -120,6 +124,7 @@ function puedeMoverse(t_Origen, t_Destino){
     else{
         if(t_Destino==t3){
             alert("Es la misma torre");
+            return false;
         }
         else if (t_Destino == t1){
             if(torre_Vacia(pila1)){
@@ -136,7 +141,7 @@ function puedeMoverse(t_Origen, t_Destino){
                 }
             }
         }
-        else{
+        else if (t_Destino == t2){
             if(torre_Vacia(pila2)){
                 return true;
             }
@@ -161,12 +166,13 @@ function moverDisco(t_Origen, t_Destino){
             valor=pila1.pop();
             pila2.push(valor); 
 
-            console.log("movido a la t2");
+            console.log("movido a la t2 de t1");
 
         }
-        else {
+        else if(t_Destino == t3){
             valor=pila1.pop();
             pila3.push(valor);
+            console.log("movido a la t3 de t1");
         }
 
     }
@@ -174,21 +180,24 @@ function moverDisco(t_Origen, t_Destino){
         if(t_Destino == t1){
             valor=pila2.pop();
             pila1.push(valor);
+            console.log("movido a la t1 de t2");
         }
-        else {
+        else if(t_Destino == t3){
             valor=pila2.pop();
             pila3.push(valor);
+            console.log("movido a la t3 de t2")
         }
     }
     else if (t_Origen == t3){
         if(t_Destino == t1){
             valor=pila3.pop();
             pila1.push(valor);
-            console.log("movido a la t1");
+            console.log("movido a la t1 de t3");
         }
-        else{
+        else if (t_Destino == t2){
             valor=pila3.pop();
             pila2.push(valor);
+            console.log("movido a la t2 de t3");
         }
     }
 }
