@@ -214,3 +214,18 @@ torres.forEach(function(torre){
     //escuchar evento y activar la funcion seleccion
     torre.addEventListener("click", seleccion);
 });
+
+// -----------mover discos eventos-------//
+
+var torre1 = document.querySelector("columna1");
+var torre2 = document.querySelector("columna2");
+var torre3 = document.querySelector("columna3");
+
+var botonT1 = document.getElementById("t1");
+var botonT2 = document.getElementById("t2");
+var botonT3 = document.getElementById("t3");
+
+botonT1.addEventListener("click", function(){
+    var disco = torre1.lastElementChild;
+    torre2.appendChild(disco);
+});

@@ -18,7 +18,7 @@ body {
     background: black;
 }
 
-.columna{
+.columna1, .columna2, .columna3{
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -28,22 +28,13 @@ body {
     background: black;
 }
 
-/*.disco {
-    width: 50px;
-    height: 20px;
-    background-color: blue;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}*/
-
 .disco {
     width: 50px;
     height: 20px;
     background-color: blue;
     position: relative;
     margin-top: 5px; /* Espacio entre los discos */
+    border-radius: 10px;
 }
 
 .disco:nth-child(2) {
