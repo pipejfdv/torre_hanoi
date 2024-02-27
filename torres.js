@@ -9,6 +9,7 @@ var valor=null;
 
 //funcion para posicionar las fichas en la primera pila
 function f_inicial(){
+    // se busca que se llene de manera inversa empezando con las ficha 4
     for (let i=discos; i>=0; i--){
     pila1.push(i);
     console.log(pila1);
@@ -18,6 +19,7 @@ function f_inicial(){
 
 //funcion de torre vacia o no
 function torre_Vacia(vacio){
+    console.log("Esta vacio");
     return vacio.length === 0;
 }
 
@@ -224,6 +226,8 @@ var torre3 = document.querySelector("columna3");
 var botonT1 = document.getElementById("t1");
 var botonT2 = document.getElementById("t2");
 var botonT3 = document.getElementById("t3");
+// se ejecuta la función para se llena la pila con las fichas
+f_inicial();
 
 botonT1.addEventListener("click", function(){
     var disco = torre1.lastElementChild;
