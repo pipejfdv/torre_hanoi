@@ -10,7 +10,6 @@ body {
 
 .baseTorre{
     position: relative;
-    top: 100%;
     margin-left: auto;
     margin-right: auto;
     width: 200px;
@@ -22,35 +21,34 @@ body {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-
     width: 10px;
     height: 250px;
     background: black;
 }
 
 .disco {
-    width: 50px;
+    top: 180px;
+    width: 40px;
     height: 20px;
-    background-color: blue;
+    background-color: rgb(0, 0, 255);
     position: relative;
-    margin-top: 5px; /* Espacio entre los discos */
     border-radius: 10px;
 }
 
 .disco:nth-child(2) {
-    width: 40px;
+    width: 60px;
     height: 20px;
     background-color: green;
 }
 
 .disco:nth-child(3) {
-    width: 30px;
+    width: 80px;
     height: 20px;
     background-color: red;
 }
 
 .disco:nth-child(4) {
-    width: 20px;
+    width: 100px;
     height: 20px;
     background-color: orange;
 }

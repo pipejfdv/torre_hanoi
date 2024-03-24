@@ -1,7 +1,16 @@
+//animación import
+//import {animacion_Torre as animacion } from './animacion';
 // elementos del html 
-document.getElementById("t1").addEventListener("click", elemento);
-document.getElementById("t2").addEventListener("click", elemento);
-document.getElementById("t3").addEventListener("click", elemento);
+const torre1=document.getElementById("t1").addEventListener("click", elemento);
+const torre2=document.getElementById("t2").addEventListener("click", elemento);
+const torre3=document.getElementById("t3").addEventListener("click", elemento);
+//elementos html de fichas
+const f1 = document.getElementById("ficha1")
+const f2 = document.getElementById("ficha2")
+const f3 = document.getElementById("ficha3")
+const f4 = document.getElementById("ficha4")
+//fichas
+var fichas = [f1,f2,f3,f4];
 
 // pilas o torres
 const pila1 = [];
@@ -69,6 +78,7 @@ function confirmacion(t_Origen, t_Destino, id, recuperacion){
 function movimiento(id){
     if(id == 't1'){
         pila1.push(t_Origen)
+        // animacion(id);
     }
     else if(id == 't2'){
         pila2.push(t_Origen)
@@ -92,6 +102,7 @@ function elemento(event){
                 
                 torre_Igual = 't1';
                 t_Origen = pila1.pop();
+                // torre1.removeChild(ficha1);
                 recuperacion = id;
                 on_Fase2 = true;
 
@@ -110,6 +121,7 @@ function elemento(event){
                 
                 torre_Igual = 't2';
                 t_Origen = pila2.pop();
+                // torre2.removeChild(ficha1);
                 recuperacion = id;
                 on_Fase2 = true;
 
@@ -128,6 +140,7 @@ function elemento(event){
                 
                 torre_Igual = 't3';
                 t_Origen = pila3.pop();
+                // torre3.removeChild(ficha1);
                 recuperacion = id;
                 on_Fase2 = true;
 
@@ -167,18 +180,21 @@ function elemento(event){
                     case 't1':
                         t_Destino=pila1[pila1.length -1];
                         confirmacion(t_Origen, t_Destino, id, recuperacion);
+                        // torre1.appendChild(ficha1);
 
                         pintado();
                         break;
                     case 't2':
                         t_Destino=pila2[pila2.length -1];
                         confirmacion(t_Origen, t_Destino, id, recuperacion);
+                        // torre2.appendChild(ficha1);
 
                         pintado();
                         break;
                     case 't3':
                         t_Destino=pila3[pila3.length -1];
                         confirmacion(t_Origen, t_Destino, id, recuperacion);
+                        // torre3.appendChild(ficha1);
 
                         pintado();
                         break
