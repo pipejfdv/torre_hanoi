@@ -1,5 +1,6 @@
-//animación import
-//import {animacion_Torre as animacion } from './animacion';
+//importaciones
+import { niveles } from "./niveles.js";
+import { discos_Multiples, borrarDiscos } from "./animacion.js";
 // elementos del html 
 const torre1=document.getElementById("t1").addEventListener("click", elemento);
 const torre2=document.getElementById("t2").addEventListener("click", elemento);
@@ -9,16 +10,22 @@ const f1 = document.getElementById("ficha1")
 const f2 = document.getElementById("ficha2")
 const f3 = document.getElementById("ficha3")
 const f4 = document.getElementById("ficha4")
+//contenedores de torres
+export const columna1 = document.querySelector('.columna1');
+export const columna2 = document.querySelector('.columna2');
+export const columna3 = document.querySelector('.columna3');
+//siguiente nivel boton
+const nvl = document.getElementById("nvl").addEventListener("click", orden);
 //fichas
 var fichas = [f1,f2,f3,f4];
 
-// pilas o torres
-const pila1 = [];
-const pila2 = [];
-const pila3 = [];
+// pilas o torres - se exportan para borrado
+export const pila1 = [];
+export const pila2 = [];
+export const pila3 = [];
 
 // variables
-let discos = 4; //determinar discos en el juego
+export let discos = niveles(); //determinar discos en el juego
 var t_Origen = null, t_Destino = null;//torres que juega
 var on_Fase2 = false; //determinar si puede pasar a la segunda fase
 var torre_Igual= null; //permite para saber si selecciona la misma torre
@@ -78,7 +85,6 @@ function confirmacion(t_Origen, t_Destino, id, recuperacion){
 function movimiento(id){
     if(id == 't1'){
         pila1.push(t_Origen)
-        // animacion(id);
     }
     else if(id == 't2'){
         pila2.push(t_Origen)
@@ -215,8 +221,16 @@ function elemento(event){
 function pintado(){
     console.log('pila 1: '+pila1+'\npila 2:'+pila2+'\npila 3: '+pila3);
 }
-
+//ejecución para los siguientes niveles
+function orden(){
+    discos = niveles();
+    borrarDiscos();
+    f_inicial();
+    discos_Multiples(discos);
+}
 
 // función inicial de juego
 f_inicial();
+//pintado de los primeros discos
+discos_Multiples(discos);
 // función de elemento cuando el jugador oprime los botones

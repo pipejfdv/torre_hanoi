@@ -52,3 +52,23 @@ body {
     height: 20px;
     background-color: orange;
 }
+.disco:nth-child(5) {
+    width: 120px;
+    height: 20px;
+    background-color: purple;
+}
+.disco:nth-child(6) {
+    width: 140px;
+    height: 20px;
+    background-color: rgb(24, 145, 161);
+}
+.disco:nth-child(7) {
+    width: 160px;
+    height: 20px;
+    background-color: rgb(79, 219, 15);
+}
+.disco:nth-child(8) {
+    width: 180px;
+    height: 20px;
+    background-color: rgb(255, 94, 0);
+}
