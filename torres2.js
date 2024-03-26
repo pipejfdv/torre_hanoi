@@ -209,13 +209,20 @@ function elemento(event){
             }
             else{
                 movimiento(id);
-                if(id == 't2'){
+                if(id == 't1'){
+                    A_Destino = columna1;
+                    cambio_Contenedor(A_Origen, A_Destino);
+                }
+                else if(id == 't2'){
                     A_Destino = columna2;
                     cambio_Contenedor(A_Origen, A_Destino);
                 }
-                else{
+                else if(id == 't3'){
                     A_Destino = columna3;
                     cambio_Contenedor(A_Origen, A_Destino);
+                }
+                else{
+                    alert("fallo en la torre vacia");
                 }
 
                 pintado();

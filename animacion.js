@@ -1,4 +1,7 @@
 import { columna1, columna2, columna3, pila1, pila2, pila3, A_Origen, A_Destino } from "./torres2.js";
+import {propiedades} from "./propiedas_Posicionamiento.js";
+import {asignarClasesAFichas} from "./inicial_Fichado.js";
+export var id_Menor = null;
 //creara el elemento en el contenedor 1
 export function crear_Elemento(valor, discos){
     //creación de elemento
@@ -33,6 +36,8 @@ export function discos_Multiples(discos){
     for(let i=1; i<=discos; i++){
         const nueva_Ficha = crear_Elemento(i, discos);
         columna1.append(nueva_Ficha);
+        //propiedades(nueva_Ficha, A_Origen);
+        console.log("ejecutado");
     }
 }
 //borrado de discos para no sobrescribir
@@ -49,17 +54,18 @@ export function borrarDiscos() {
 }
 
 export function cambio_Contenedor(A_Origen, A_Destino){
-
    // Convertir los hijos del contenedor en una lista iterable y filtrar solo los div
     const children = [...A_Origen.children].filter(child => child.nodeName === 'DIV');
        //si es mayor buscar
     if (children.length > 0) {
         // Buscar el div con el ID más bajo
-        const id_Menor = children.reduce((menor_Id, div_Actual) => {
+        id_Menor = children.reduce((menor_Id, div_Actual) => {
                                                                 //comparador si es correcto (condicional)
         return parseInt(div_Actual.id) < parseInt(menor_Id.id) ? div_Actual : menor_Id;
         });
+        //cambio de propiedades
+        propiedades(id_Menor, A_Destino);
         // Mover el div con el ID más bajo a container2
-        A_Destino.appendChild(id_Menor);
+        A_Destino.append(id_Menor);
     }          
 }
