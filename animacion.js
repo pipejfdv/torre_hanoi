@@ -36,7 +36,7 @@ export function discos_Multiples(discos){
     for(let i=1; i<=discos; i++){
         const nueva_Ficha = crear_Elemento(i, discos);
         columna1.append(nueva_Ficha);
-        //propiedades(nueva_Ficha, A_Origen);
+        propiedades(nueva_Ficha, A_Origen);
         console.log("ejecutado");
     }
 }
