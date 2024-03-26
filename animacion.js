@@ -1,21 +1,37 @@
-import { columna1, columna2, columna3, pila1, pila2, pila3 } from "./torres2.js";
-//variable para modificación css
-let top_Actual = 180;
+import { columna1, columna2, columna3, pila1, pila2, pila3, A_Origen, A_Destino } from "./torres2.js";
 //creara el elemento en el contenedor 1
-export function crear_Elemento(valor){
+export function crear_Elemento(valor, discos){
+    //creación de elemento
     const ficha = document.createElement('div');
-    
     //contenido a mostrar
     ficha.textContent = valor;
     //asignando atributos
     ficha.setAttribute('class','disco translate-middle');
     ficha.setAttribute('id',valor);
+    switch(discos){
+        case 4:
+            return ficha;
+        case 5:
+            ficha.classList.add("disco_Nvl2");
+            return ficha;
+        case 6:
+            ficha.classList.add("disco_Nvl3");
+            return ficha;
+        case 7:
+            ficha.classList.add("disco_Nvl4");
+            return ficha;
+        case 8:
+            ficha.classList.add("disco_Nvl5");
+            return ficha;      
+        default:
+            alert("fallo de posicionamiento de fichas. Recargar pagina");
+    }
     return ficha;
 }
 //crear varios discos 
 export function discos_Multiples(discos){
     for(let i=1; i<=discos; i++){
-        const nueva_Ficha = crear_Elemento(i);
+        const nueva_Ficha = crear_Elemento(i, discos);
         columna1.append(nueva_Ficha);
     }
 }
@@ -30,8 +46,20 @@ export function borrarDiscos() {
     if (discos.length) {
       discos.forEach(disco => disco.remove());
     }
-    //restado de pixels
-    top_Actual = top_Actual - 20;
-    //establecer valor para el nuevo div
-    document.styleSheets[0].rules[0].style.top = top_Actual + 'px';
-  }
+}
+
+export function cambio_Contenedor(A_Origen, A_Destino){
+
+   // Convertir los hijos del contenedor en una lista iterable y filtrar solo los div
+    const children = [...A_Origen.children].filter(child => child.nodeName === 'DIV');
+       //si es mayor buscar
+    if (children.length > 0) {
+        // Buscar el div con el ID más bajo
+        const id_Menor = children.reduce((menor_Id, div_Actual) => {
+                                                                //comparador si es correcto (condicional)
+        return parseInt(div_Actual.id) < parseInt(menor_Id.id) ? div_Actual : menor_Id;
+        });
+        // Mover el div con el ID más bajo a container2
+        A_Destino.appendChild(id_Menor);
+    }          
+}

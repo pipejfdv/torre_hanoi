@@ -72,3 +72,16 @@ body {
     height: 20px;
     background-color: rgb(255, 94, 0);
 }
+/* posición inicial */
+.disco_Nvl2{
+    top: 160px;
+}
+.disco_Nvl3{
+    top: 140px;
+}
+.disco_Nvl4{
+    top: 120px;
+}
+.disco_Nvl5{
+    top: 100px;
+}

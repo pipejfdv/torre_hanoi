@@ -1,24 +1,16 @@
 //importaciones
 import { niveles } from "./niveles.js";
-import { discos_Multiples, borrarDiscos } from "./animacion.js";
+import { discos_Multiples, borrarDiscos, cambio_Contenedor } from "./animacion.js";
 // elementos del html 
-const torre1=document.getElementById("t1").addEventListener("click", elemento);
-const torre2=document.getElementById("t2").addEventListener("click", elemento);
-const torre3=document.getElementById("t3").addEventListener("click", elemento);
-//elementos html de fichas
-const f1 = document.getElementById("ficha1")
-const f2 = document.getElementById("ficha2")
-const f3 = document.getElementById("ficha3")
-const f4 = document.getElementById("ficha4")
+document.getElementById("t1").addEventListener("click", elemento);
+document.getElementById("t2").addEventListener("click", elemento);
+document.getElementById("t3").addEventListener("click", elemento);
 //contenedores de torres
 export const columna1 = document.querySelector('.columna1');
 export const columna2 = document.querySelector('.columna2');
 export const columna3 = document.querySelector('.columna3');
 //siguiente nivel boton
-const nvl = document.getElementById("nvl").addEventListener("click", orden);
-//fichas
-var fichas = [f1,f2,f3,f4];
-
+document.getElementById("nvl").addEventListener("click", orden);
 // pilas o torres - se exportan para borrado
 export const pila1 = [];
 export const pila2 = [];
@@ -30,6 +22,7 @@ var t_Origen = null, t_Destino = null;//torres que juega
 var on_Fase2 = false; //determinar si puede pasar a la segunda fase
 var torre_Igual= null; //permite para saber si selecciona la misma torre
 var recuperacion = null;//recuperar dato
+export var A_Origen = null, A_Destino = null; //determinar a que columnas del contenedor se va mover la animación
 // --------------------funciones----------------
 
 //funcion para posicionar las fichas en la primera pila
@@ -63,7 +56,17 @@ function torre_Vacia(id){
 function confirmacion(t_Origen, t_Destino, id, recuperacion){
     if(t_Origen < t_Destino){
         movimiento(id);
-        return true;
+        //determinar el destino de la animación
+        if(id == 't1'){
+            A_Destino = columna1;
+        }
+        else if(id == 't2'){
+            A_Destino = columna2;
+        }
+        else{
+            A_Destino = columna3;
+        }
+        cambio_Contenedor(A_Origen, A_Destino);
     }
     else{
         alert('la ficha es más grande de la que esta en la base');
@@ -78,7 +81,6 @@ function confirmacion(t_Origen, t_Destino, id, recuperacion){
                 pila3.push(t_Origen);
                 break;
         }
-        return false;
     }
 }
 //ejecución de mov
@@ -108,9 +110,9 @@ function elemento(event){
                 
                 torre_Igual = 't1';
                 t_Origen = pila1.pop();
-                // torre1.removeChild(ficha1);
                 recuperacion = id;
                 on_Fase2 = true;
+                A_Origen = columna1;
 
                 pintado();
             }
@@ -127,9 +129,9 @@ function elemento(event){
                 
                 torre_Igual = 't2';
                 t_Origen = pila2.pop();
-                // torre2.removeChild(ficha1);
                 recuperacion = id;
                 on_Fase2 = true;
+                A_Origen = columna2;
 
                 pintado();
             }
@@ -146,9 +148,9 @@ function elemento(event){
                 
                 torre_Igual = 't3';
                 t_Origen = pila3.pop();
-                // torre3.removeChild(ficha1);
                 recuperacion = id;
                 on_Fase2 = true;
+                A_Origen = columna3;
 
                 pintado();
             }
@@ -179,28 +181,25 @@ function elemento(event){
             
             pintado();
         }
-        else{//seleccion de las segunda torre evitando que sea la misma
+        else{//seleccion de las SEGUNDA torre evitando que sea la misma
             var vacio = torre_Vacia(id);
             if(!vacio){
                 switch(id){
                     case 't1':
                         t_Destino=pila1[pila1.length -1];
                         confirmacion(t_Origen, t_Destino, id, recuperacion);
-                        // torre1.appendChild(ficha1);
 
                         pintado();
                         break;
                     case 't2':
                         t_Destino=pila2[pila2.length -1];
                         confirmacion(t_Origen, t_Destino, id, recuperacion);
-                        // torre2.appendChild(ficha1);
 
                         pintado();
                         break;
                     case 't3':
                         t_Destino=pila3[pila3.length -1];
                         confirmacion(t_Origen, t_Destino, id, recuperacion);
-                        // torre3.appendChild(ficha1);
 
                         pintado();
                         break
@@ -210,6 +209,14 @@ function elemento(event){
             }
             else{
                 movimiento(id);
+                if(id == 't2'){
+                    A_Destino = columna2;
+                    cambio_Contenedor(A_Origen, A_Destino);
+                }
+                else{
+                    A_Destino = columna3;
+                    cambio_Contenedor(A_Origen, A_Destino);
+                }
 
                 pintado();
             }
