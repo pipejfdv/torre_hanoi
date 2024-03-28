@@ -1,82 +1,244 @@
-import { columna1 } from "./torres2.js";
+import { columna1, discos } from "./torres2.js";
 export function asignarClasesAFichas() {
 const fichas = columna1.querySelectorAll('.disco');
 
 fichas.forEach(ficha => {
     // Comprobar si el elemento tiene la clase 'disco'
     if (ficha.classList.contains('disco')) {
-    // Obtener el ID del elemento
-    const id = ficha.getAttribute('id');
+    var resul_nivel = determinar_Nivel(discos);
     //determina el nivel
-    switch(determinar_Nivel(ficha)){
+    switch(resul_nivel){
         case 1:
-            //asignar propiedades
+            //asignar propiedades de acuerdo al nivel
+            console.log("pase por el nivel 1");
+            sacar_ID(resul_nivel, ficha);
             break;
         case 2:
-            //asignar propiedades
+            //asignar propiedades de acuerdo al nivel
+            sacar_ID(resul_nivel, ficha);
+            console.log("pase por el nivel 2");
             break;
         case 3:
-            //asignar propiedades
+            //asignar propiedades de acuerdo al nivel
+            sacar_ID(resul_nivel, ficha);
+            console.log("pase por el nivel 3");
             break;
         case 4:
-            //asignar propiedades
+            //asignar propiedades de acuerdo al nivel
+            sacar_ID(resul_nivel, ficha);
             break;
         case 5:
-            //asignar propiedades
+            //asignar propiedades de acuerdo al nivel
+            sacar_ID(resul_nivel, ficha);
             break;
     }
-    // Agregar clases específicas de acuerdo al ID
 
     }
 });
 }
 //determina el nivel para la asignación de propiedades
-function determinar_Nivel(ficha){
-    if(ficha.classList.contains('disco_Nvl2')){
+function determinar_Nivel(discos){
+    if(discos == 4){
+        return 1;
+    }
+    else if(discos == 5){
         return 2;
     }
-    else if(ficha.classList.contains('disco_Nvl3')){
+    else if(discos == 6){
         return 3;
     }
-    else if (ficha.classList.contains('disco_Nvl4')){
+    else if (discos == 7){
         return 4;
     }
-    else if(ficha.classList.contains('disco_Nvl5')){
+    else if(discos == 8){
         return 5;
     }
     else{
-        console.log("nivel 1");
-        return 1;
+        console.log("Fallo en determinar el nivel");
+        return 0;
     }
 }
 
-function sacar_ID(){
-    switch (id) {
-        case '1':
-            ficha.classList.add('proiedad1', 'claseComun');
-            break;
-        case '2':
-            ficha.classList.add('proiedad2', 'claseComun');
-            break;
-        case '3':
-            ficha.classList.add('proiedad3', 'claseComun');
-            break;
-        case '4':
-            ficha.classList.add('proiedad4', 'claseComun');
-            break;
-        case '5':
-            ficha.classList.add('proiedad5', 'claseComun');
-            break;
-        case '6':
-            ficha.classList.add('proiedad6', 'claseComun');
-            break;
-        case '7':
-            ficha.classList.add('proiedad7', 'claseComun');
-            break;
-        case '8':
-            ficha.classList.add('proiedad8', 'claseComun');
-            break;
-        default:
-            alert("fallo de propiedades");
+function sacar_ID(resul_nivel, ficha){
+    if (resul_nivel == 1) {
+        switch (ficha.id) {
+            case '1':
+                ficha.classList.add('propiedad1', 'inicial_Nvl1_Ficha1');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '2':
+                ficha.classList.add('propiedad2', 'inicial_Nvl1_Ficha2');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '3':
+                ficha.classList.add('propiedad3', 'inicial_Nvl1_Ficha3');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '4':
+                ficha.classList.add('propiedad4', 'inicial_Nvl1_Ficha4');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+        }
+    } 
+    else if (resul_nivel == 2){
+        switch (ficha.id) {
+            case '1':
+                ficha.classList.add('propiedad1', 'inicial_Nvl2_Ficha1');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '2':
+                ficha.classList.add('propiedad2', 'inicial_Nvl2_Ficha2');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '3':
+                ficha.classList.add('propiedad3', 'inicial_Nvl2_Ficha3');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '4':
+                ficha.classList.add('propiedad4', 'inicial_Nvl2_Ficha4');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '5':
+                ficha.classList.add('propiedad5', 'inicial_Nvl2_Ficha5');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            default:
+                alert("fallo de propiedades NIVEL 2");
+        }
+    }
+    else if (resul_nivel == 3){
+        switch (ficha.id) {
+            case '1':
+                ficha.classList.add('propiedad1', 'inicial_Nvl3_Ficha1');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '2':
+                ficha.classList.add('propiedad2', 'inicial_Nvl3_Ficha2');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '3':
+                ficha.classList.add('propiedad3', 'inicial_Nvl3_Ficha3');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '4':
+                ficha.classList.add('propiedad4', 'inicial_Nvl3_Ficha4');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '5':
+                ficha.classList.add('propiedad5', 'inicial_Nvl3_Ficha5');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '6':
+                ficha.classList.add('propiedad6', 'inicial_Nvl3_Ficha6');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            default:
+                alert("fallo de propiedades NIVEL 3");
+        }
+    }
+    else if (resul_nivel == 4){
+        switch (ficha.id) {
+            case '1':
+                ficha.classList.add('propiedad1', 'inicial_Nvl4_Ficha1');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '2':
+                ficha.classList.add('propiedad2', 'inicial_Nvl4_Ficha2');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '3':
+                ficha.classList.add('propiedad3', 'inicial_Nvl4_Ficha3');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '4':
+                ficha.classList.add('propiedad4', 'inicial_Nvl4_Ficha4');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '5':
+                ficha.classList.add('propiedad5', 'inicial_Nvl4_Ficha5');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '6':
+                ficha.classList.add('propiedad6', 'inicial_Nvl4_Ficha6');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '7':
+                ficha.classList.add('propiedad7', 'inicial_Nvl4_Ficha7');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            default:
+                alert("fallo de propiedades NIVEL 4");
+        }
+    }
+    else if (resul_nivel == 5){
+        switch (ficha.id) {
+            case '1':
+                ficha.classList.add('propiedad1', 'inicial_Nvl5_Ficha1');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '2':
+                ficha.classList.add('propiedad2', 'inicial_Nvl5_Ficha2');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '3':
+                ficha.classList.add('propiedad3', 'inicial_Nvl5_Ficha3');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '4':
+                ficha.classList.add('propiedad4', 'inicial_Nvl5_Ficha4');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '5':
+                ficha.classList.add('propiedad5', 'inicial_Nvl5_Ficha5');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '6':
+                ficha.classList.add('propiedad6', 'inicial_Nvl5_Ficha6');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '7':
+                ficha.classList.add('propiedad7', 'inicial_Nvl5_Ficha7');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            case '8':
+                ficha.classList.add('propiedad8', 'inicial_Nvl5_Ficha8');
+                ficha.classList.remove('disco');
+                ficha.classList.remove('Nvl1');
+                break;
+            default:
+                alert("fallo de propiedades NIVEL 5");
+        }
+    }
+    else{
+        alert("fallo para propiedades iniciales");
     }
 }

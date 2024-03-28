@@ -1,42 +1,24 @@
-import { columna1, columna2, columna3, pila1, pila2, pila3, A_Origen, A_Destino } from "./torres2.js";
+import { columna1, pila1, pila2, pila3 } from "./torres2.js";
 import {propiedades} from "./propiedas_Posicionamiento.js";
 import {asignarClasesAFichas} from "./inicial_Fichado.js";
 export var id_Menor = null;
 //creara el elemento en el contenedor 1
-export function crear_Elemento(valor, discos){
+export function crear_Elemento(valor){
     //creación de elemento
     const ficha = document.createElement('div');
     //contenido a mostrar
     ficha.textContent = valor;
     //asignando atributos
-    ficha.setAttribute('class','disco translate-middle');
+    ficha.setAttribute('class','disco translate-middle Nvl1');
     ficha.setAttribute('id',valor);
-    switch(discos){
-        case 4:
-            return ficha;
-        case 5:
-            ficha.classList.add("disco_Nvl2");
-            return ficha;
-        case 6:
-            ficha.classList.add("disco_Nvl3");
-            return ficha;
-        case 7:
-            ficha.classList.add("disco_Nvl4");
-            return ficha;
-        case 8:
-            ficha.classList.add("disco_Nvl5");
-            return ficha;      
-        default:
-            alert("fallo de posicionamiento de fichas. Recargar pagina");
-    }
     return ficha;
 }
 //crear varios discos 
 export function discos_Multiples(discos){
     for(let i=1; i<=discos; i++){
-        const nueva_Ficha = crear_Elemento(i, discos);
+        const nueva_Ficha = crear_Elemento(i);
         columna1.append(nueva_Ficha);
-        propiedades(nueva_Ficha, A_Origen);
+        asignarClasesAFichas(discos);
         console.log("ejecutado");
     }
 }
@@ -45,7 +27,7 @@ export function borrarDiscos() {
     pila3.length=0;
     pila1.length=0;
     pila2.length=0;
-    const discos = document.querySelectorAll('.disco');
+    const discos = document.querySelectorAll('[class*="propiedad"]');
   
     // Si hay discos en el DOM
     if (discos.length) {

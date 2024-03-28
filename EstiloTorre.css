@@ -5,8 +5,8 @@ body {
     font-family: 'Nunito', sans-serif; 
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
+    margin: 0;
 }
-
 .baseTorre{
     position: relative;
     margin-left: auto;
@@ -68,19 +68,6 @@ body {
     height: 20px;
     background-color: rgb(255, 94, 0);
 }
-/* posición inicial de acuerdo al nivel*/
-.disco_Nvl2{
-    top: 160px;
-}
-.disco_Nvl3{
-    top: 140px;
-}
-.disco_Nvl4{
-    top: 120px;
-}
-.disco_Nvl5{
-    top: 100px;
-}
 /* posiciones en juego */
 .disco_Posicion1{
     top:240px !important;
@@ -107,56 +94,56 @@ body {
     top:-40px !important;
 }
 /* clases con las propiedades */
-.proiedad1{
+.propiedad1{
     width: 40px;
     height: 20px;
     background-color: rgb(0, 0, 255);
     position: relative;
     border-radius: 10px;
 }
-.proiedad2{
+.propiedad2{
     width: 60px;
     height: 20px;
     background-color: green;
     position: relative;
     border-radius: 10px;
 }
-.proiedad3{
+.propiedad3{
     width: 80px;
     height: 20px;
     background-color: red;
     position: relative;
     border-radius: 10px;
 }
-.proiedad4{
+.propiedad4{
     width: 100px;
     height: 20px;
     background-color: orange;
     position: relative;
     border-radius: 10px;
 }
-.proiedad5{
+.propiedad5{
     width: 120px;
     height: 20px;
     background-color: purple;
     position: relative;
     border-radius: 10px;
 }
-.proiedad6{
+.propiedad6{
     width: 140px;
     height: 20px;
     background-color: rgb(24, 145, 161);
     position: relative;
     border-radius: 10px;
 }
-.proiedad7{
+.propiedad7{
     width: 160px;
     height: 20px;
     background-color:rgb(79, 219, 15);
     position: relative;
     border-radius: 10px;
 }
-.proiedad8{
+.propiedad8{
     width: 180px;
     height: 20px;
     background-color:rgb(255, 94, 0);
@@ -164,28 +151,144 @@ body {
     border-radius: 10px;
 }
 /* ---------------------------- */
-/* Posiciones de los discos iniales */
-.inicial1{
+/* Posiciones de los discos iniciales NIVEL 1*/
+.inicial_Nvl1_Ficha1{
     top: 180px;
+    position: absolute;
 }
-.inicial2{
+.inicial_Nvl1_Ficha2{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl1_Ficha3{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl1_Ficha4{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 2*/
+.inicial_Nvl2_Ficha1{
     top: 160px;
+    position: absolute;
 }
-.inicial3{
+.inicial_Nvl2_Ficha2{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha3{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha4{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha5{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 3*/
+.inicial_Nvl3_Ficha1{
     top: 140px;
+    position: absolute;
 }
-.inicial4{
+.inicial_Nvl3_Ficha2{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha3{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha4{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha5{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha6{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 4*/
+.inicial_Nvl4_Ficha1{
     top: 120px;
+    position: absolute;
 }
-.inicial5{
+.inicial_Nvl4_Ficha2{
+    top: 140px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha3{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha4{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha5{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha6{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha7{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 5*/
+.inicial_Nvl5_Ficha1{
     top: 100px;
+    position: absolute;
 }
-.inicial6{
-    top: 80px;
+.inicial_Nvl5_Ficha2{
+    top: 120px;
+    position: absolute;
 }
-.inicial7{
-    top: 40px;
+.inicial_Nvl5_Ficha3{
+    top: 140px;
+    position: absolute;
 }
-.inicial8{
-    top: 0px;
+.inicial_Nvl5_Ficha4{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha5{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha6{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha7{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha8{
+    top: 240px;
+    position: absolute;
+}
+/*boton de nivel ocultado*/
+#siguiente{
+    display: none;
+}
+/*contenedor para mostrar la victoria*/
+.efecto_Glass{
+    background: #fafafa10;
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    position: absolute;
+    border-radius: 5%;
+    display: none;
+}
+#parrafo{
+    font-size: 80px;
 }

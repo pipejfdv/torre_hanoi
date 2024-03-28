@@ -109,28 +109,28 @@ function posicion (numero_Divs, id_Menor){
 
 function diseño(id_Menor){
     if(id_Menor.id == 1){
-        id_Menor.classList.replace("disco", "proiedad1");
+        id_Menor.classList.replace("disco", "propiedad1");
     }
     else if(id_Menor.id == 2){
-        id_Menor.classList.replace("disco", "proiedad2");
+        id_Menor.classList.replace("disco", "propiedad2");
     }
     else if(id_Menor.id == 3){
-        id_Menor.classList.replace("disco", "proiedad3");
+        id_Menor.classList.replace("disco", "propiedad3");
     }
     else if(id_Menor.id == 4){
-        id_Menor.classList.replace("disco", "proiedad4");
+        id_Menor.classList.replace("disco", "propiedad4");
     }
     else if(id_Menor.id == 5){
-        id_Menor.classList.replace("disco", "proiedad5");
+        id_Menor.classList.replace("disco", "propiedad5");
     }
     else if(id_Menor.id == 6){
-        id_Menor.classList.replace("disco", "proiedad6");
+        id_Menor.classList.replace("disco", "propiedad6");
     }
     else if(id_Menor.id == 7){
-        id_Menor.classList.replace("disco", "proiedad7");
+        id_Menor.classList.replace("disco", "propiedad7");
     }
     else if(id_Menor.id == 8){
-        id_Menor.classList.replace("disco", "proiedad8");
+        id_Menor.classList.replace("disco", "propiedad8");
     }
     else{
         alert("error de diseño")
