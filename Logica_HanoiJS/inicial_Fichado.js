@@ -10,18 +10,15 @@ fichas.forEach(ficha => {
     switch(resul_nivel){
         case 1:
             //asignar propiedades de acuerdo al nivel
-            console.log("pase por el nivel 1");
             sacar_ID(resul_nivel, ficha);
             break;
         case 2:
             //asignar propiedades de acuerdo al nivel
             sacar_ID(resul_nivel, ficha);
-            console.log("pase por el nivel 2");
             break;
         case 3:
             //asignar propiedades de acuerdo al nivel
             sacar_ID(resul_nivel, ficha);
-            console.log("pase por el nivel 3");
             break;
         case 4:
             //asignar propiedades de acuerdo al nivel

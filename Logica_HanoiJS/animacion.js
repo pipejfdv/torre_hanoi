@@ -19,7 +19,6 @@ export function discos_Multiples(discos){
         const nueva_Ficha = crear_Elemento(i);
         columna1.append(nueva_Ficha);
         asignarClasesAFichas(discos);
-        console.log("ejecutado");
     }
 }
 //borrado de discos para no sobrescribir
