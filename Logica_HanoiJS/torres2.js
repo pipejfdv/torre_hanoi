@@ -1,7 +1,8 @@
 //importaciones
-import { niveles } from "./niveles.js";
+import { niveles, juego_Perfecto, reinicio_Total, instruccion } from "./niveles.js";
 import { discos_Multiples, borrarDiscos, cambio_Contenedor } from "./animacion.js";
-import { victoria_Hanoi } from "./victoria.js";
+import { victoria_Hanoi, reiniciado, cerrando } from "./victoria.js";
+export {movimiento_Usuario};
 // elementos del html 
 document.getElementById("t1").addEventListener("click", elemento);
 document.getElementById("t2").addEventListener("click", elemento);
@@ -14,8 +15,17 @@ export const columna3 = document.querySelector('.columna3');
 document.getElementById("siguiente").addEventListener("click", orden);
 //confirmar si pasa de nivel
 document.getElementById("confirmar").addEventListener("click", victoria_Hanoi);
-//div que muestra el contenido
+//boton de reinicio
+document.getElementById("Reiniciar").addEventListener("click", reiniciado);
+document.getElementById("cerrado").addEventListener("click", cerrando);
+//opciones de reinicio
+document.getElementById("Reinicio_Total").addEventListener("click", reinicio_Total);
+document.getElementById("Reinicio_Nivel").addEventListener("click", ()=>{reinicio_Nivel(); movimiento_Usuario = 0});
+//div's que muestran el contenido
 const contenido_Movimiento = document.getElementById("movimientos");
+const movimientos_UsuarioGUI = document.getElementById("parrafo");
+//div de instrucciones
+document.getElementById("Jugar").addEventListener("click", instruccion);
 // pilas o torres - se exportan para borrado
 export const pila1 = [];
 export const pila2 = [];
@@ -28,17 +38,16 @@ var on_Fase2 = false; //determinar si puede pasar a la segunda fase
 var torre_Igual= null; //permite para saber si selecciona la misma torre
 var recuperacion = null;//recuperar dato
 export var A_Origen = null, A_Destino = null; //determinar a que columnas del contenedor se va mover la animación
-var movimiento_Usuario = 0;
+let movimiento_Usuario = 0;//contado de movimientos por usuario
+const guia_Usuario = juego_Perfecto(discos);
 // --------------------funciones----------------
 
 //funcion para posicionar las fichas en la primera pila
-function f_inicial(){
+export function f_inicial(){
     // se busca que se llene de manera inversa empezando con las ficha 4
     for (let i=discos; i>=1; i--){
-    pila1.push(i);
-    // PINTAR EN PANTALLA
-    //console.log(pila1);
-}}
+    pila1.push(i);}
+}
 
 function torre_Vacia(id){
 //determina si la torre esta vacia o no y retorna un booleano
@@ -248,10 +257,13 @@ function pintado(){
     console.log('pila 1: '+pila1+'\npila 2:'+pila2+'\npila 3: '+pila3);
 }
 //pintado de movimientos para el jugador
-export function actualizacion_Movimiento() {
+function actualizacion_Movimiento() {
     contenido_Movimiento.innerHTML = "<strong>Tus movimientos:" + movimiento_Usuario + "</strong>";
 }
-    
+//pintado de nivel completado
+export function usuario_Guio(){
+    movimientos_UsuarioGUI.innerHTML = "<strong>¡Ganaste!</strong><br>Tus movimientos en este juego fueron: " + movimiento_Usuario + "<br>Los movimientos para este nivel erán: " + guia_Usuario;
+}
 //ejecución para los siguientes niveles
 function orden(){
     discos = niveles();
@@ -263,9 +275,19 @@ function orden(){
     document.getElementById("confirmar").style.display = "block";
     movimiento_Usuario = 0;
 }
-// función de evento para determinar si gana, se ejecuta de manera constante
-
+//se reinicia el nivel
+function reinicio_Nivel(){
+    borrarDiscos();
+    f_inicial();
+    discos_Multiples(discos);
+    movimiento_Usuario = 0;
+}
 // función inicial de juego
 f_inicial();
 //pintado de los primeros discos
 discos_Multiples(discos);
+//instrucciones de juego 
+window.onload=function bloqueo_Botones(){
+    document.getElementById("Reiniciar").style.display="none";
+    document.getElementById("confirmar").style.display="none";
+}
